@@ -15,7 +15,7 @@ rbenv_global "2.1.1"
 
 include_recipe "yum-epel"
 
-%w{bundler rails}.each do |g|
+%w{bundler rails unicorn}.each do |g|
 	rbenv_gem g do
 		rbenv_version "2.1.1"
 		action :install
@@ -41,8 +41,9 @@ end
 
 
 include_recipe "iptables"
-
 iptables_rule "iptables"
+
+package "vim" do action :install end
 
 
 
